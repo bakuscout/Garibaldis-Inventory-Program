@@ -16,14 +16,20 @@ function Download () {
             row.push(list[i].count)
             inventory.push(row)
         }
-        const content = "data:text/csv;charset=utf-8," + inventory.map(row => row.join(",")).join("\n")
-        const uri = encodeURI(content)
-        const link = document.createElement("a")
-        link.setAttribute("href", uri);
-        link.setAttribute("download", "test");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        
+        if (!inventory.length) {
+            return
+        }
+        else {
+            const content = "data:text/csv;charset=utf-8," + inventory.map(row => row.join(",")).join("\n")
+            const uri = encodeURI(content)
+            const link = document.createElement("a")
+            link.setAttribute("href", uri);
+            link.setAttribute("download", "test");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
     }
 
     return (
