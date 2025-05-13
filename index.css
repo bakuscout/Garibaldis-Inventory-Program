@@ -31,7 +31,7 @@ input {
   margin: .1em;
   background-color: lightgray;
   color: black;
-  height: 2em;
+  height: 5em;
 }
 
 #item {
@@ -46,5 +46,5 @@ input {
   margin: .1em;
   background-color: lightgray;
   color: black;
-  height: 2em;
+  height: 5em;
 }
