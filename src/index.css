@@ -31,6 +31,7 @@ input {
   margin: .1em;
   background-color: lightgray;
   color: black;
+  height: 2em;
 }
 
 #item {
@@ -45,4 +46,5 @@ input {
   margin: .1em;
   background-color: lightgray;
   color: black;
+  height: 2em;
 }
