@@ -1,7 +1,5 @@
 import React from "react";
 
-//figure out removing items later.
-
 function Inventory (props) {
   // console.log(props.data)
   if(props.data[0] === undefined) {

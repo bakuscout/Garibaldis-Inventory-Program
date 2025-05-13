@@ -6,20 +6,34 @@ import Download from './Download';
 function App() {
   const [inventory, setInventory] = useState([]);
 
+  // Persistance WIP
+
+  // if (localStorage.getItem("List").length === 2) {
+  //   console.log("Storage is Empty", localStorage.getItem("List").length)
+  // }
+  // else if (inventory.length === 0 && localStorage.getItem("List").length > 2) {
+  //   let storage = localStorage.getItem("List")
+  //   let list = JSON.parse(storage)
+  //   setInventory([...inventory, list]);
+  //   // console.log("inventory is now " + inventory.length)
+  // }
+
   const handleSubmit = (event) => {
     event.preventDefault()
     const input = [document.getElementById("item").value, document.getElementById("count").value]
     // console.log(input)
     if (input[0] === '' || input[1] === '') {
+      console.log("No Input")
       return
     }
     else {
+      // console.log("Input Recieved")
       const newItem = {item: input[0], count: input[1]}
       setInventory([...inventory, newItem]);
+      // console.log("Input Set")
     }
   }
   localStorage.setItem("List", JSON.stringify(inventory))
-  // console.log(JSON.parse(localStorage.getItem('List')))
 
   function resetStorage () {
     localStorage.clear();
@@ -33,11 +47,13 @@ function App() {
     }
   }
 
+  
+
   return (
     <>
       <form action="#" onSubmit={handleSubmit}>
                 <input type="text" id="item" placeholder="new item"/>
-                <input type="number" id="count" placeholder="how many"/>
+                <input type="number" id="count" placeholder="how many" step="0.125"/>
                 <input type="submit" />
       </form>
       <table>

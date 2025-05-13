@@ -1,11 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Download () {
     function convertStorage (event) {
         event.preventDefault()
-        /*2. convert to csv
-          3. download csv file
-        */
+
         let storage = localStorage.getItem("List")
         let list = JSON.parse(storage)
         let inventory = []
@@ -16,6 +14,12 @@ function Download () {
             row.push(list[i].count)
             inventory.push(row)
         }
+
+        const date = new Date();
+        const loadData = (
+            `${date.getMonth() + 1}_${date.getDate()}_${date.getFullYear().toString().slice(-2)}`
+        )
+        // console.log(loadData)
         
         if (!inventory.length) {
             return
@@ -25,7 +29,7 @@ function Download () {
             const uri = encodeURI(content)
             const link = document.createElement("a")
             link.setAttribute("href", uri);
-            link.setAttribute("download", "test");
+            link.setAttribute("download", loadData);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
